@@ -1,0 +1,20 @@
+<?php
+// Local server settings
+define('WP_HOME', 'http://{siteName}.test');
+define('WP_SITEURL', WP_HOME);
+
+// ** MySQL settings ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'db_{siteName}');
+
+/** MySQL database username */
+define('DB_USER', '{dbUser}');
+
+/** MySQL database password */
+define('DB_PASSWORD', '{dbPass}');
+
+/** MySQL hostname */
+define('DB_HOST', '{dbHost}');
+
+/** Define the environment, for Roots/Sage */
+define('WP_ENV', 'development');

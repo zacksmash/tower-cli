@@ -1,0 +1,11 @@
+# The myshopify.com URL to your Shopify store
+SLATE_STORE={storeName}.myshopify.com
+
+# The API password generated from a Private App
+SLATE_PASSWORD={apiPassword}
+
+# The ID of the theme you wish to upload files to
+SLATE_THEME_ID={themeId}
+
+# A list of file patterns to ignore, with each list item separated by ':' (optional)
+SLATE_IGNORE_FILES=config/settings_data.json

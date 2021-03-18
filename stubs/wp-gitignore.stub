@@ -1,0 +1,14 @@
+.DS_Store
+.idea
+.vscode
+wp-config-local.php
+wp-content/themes/twenty*
+wp-content/plugins/akismet
+wp-content/plugins/hello.php
+wp-content/themes/signal/.sass-cache/*
+wp-content/themes/signal/node_modules
+wp-content/themes/signal/npm-debug.log
+wp-content/themes/signal/yarn-error.log
+wp-content/upgrade
+wp-content/uploads/cache
+wp-snapshots

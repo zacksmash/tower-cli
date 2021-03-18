@@ -1,0 +1,11 @@
+{
+    "github_token": "{githubToken}",
+    "github_organization": "{githubOrganization}",
+    "github_as": "{githubAs}",
+    "db_user": "{dbUser}",
+    "db_pass": "{dbPass}",
+    "db_host": "{dbHost}",
+    "stg_user": "{stgUser}",
+    "stg_pass": "{stgPass}",
+    "stg_host": "{stgHost}"
+}

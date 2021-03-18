@@ -1,0 +1,3 @@
+name: 'Super Admin'
+super: true
+password: {password}

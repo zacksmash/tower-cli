@@ -1,0 +1,82 @@
+<?php
+
+namespace App\Tags;
+
+use Statamic\Tags\Tags;
+
+class CurrentView extends Tags
+{
+    /**
+     * The {{ current_view }} tag.
+     *
+     * @return string|array
+     */
+    public function index()
+    {
+        if ($current = $this->context->get('template')) {
+            return str_replace('/', '-', $current);
+        }
+
+        if ($current = $this->context->get('collection')) {
+            return str_replace('/', '-', $current->template());
+        }
+
+        if ($current = $this->context->get('handle')) {
+            return $current . '-index';
+        }
+
+        if ($current = $this->context->get('taxonomy')) {
+            return $current->handle() . '-show';
+        }
+
+        if ($current = $this->context->get('response_code') == 404) {
+            return 'error-404';
+        }
+
+        if ($current = $this->context->get('segment_1')) {
+            return $current;
+        }
+
+        return 'default';
+    }
+
+    /**
+     * The {{ current_view:body }} tag.
+     *
+     * @return string|array
+     */
+    public function body()
+    {
+        $classes = [];
+
+        if ($this->context->get('is_entry')) {
+            $classes[] = 'entry--'.$this->context->get('collection')->handle();
+        }
+
+        if ($this->context->get('collection')) {
+            $classes[] = 'collection--'.$this->context->get('collection')->handle();
+        }
+
+        if ($this->context->get('is_term')) {
+            $classes[] = 'term--'.$this->context->get('slug')->raw();
+        }
+
+        if ($this->context->get('taxonomy')) {
+            $classes[] = 'taxonomy--'.$this->context->get('taxonomy')->handle();
+        }
+
+        if ($this->context->get('handle')) {
+            $classes[] = 'taxonomy--'.$this->context->get('handle');
+        }
+
+        if ($current = $this->context->get('response_code') == 404) {
+            $classes[] = 'error--404';
+        }
+
+        if ($current = $this->context->get('segment_1')) {
+            $classes[] = $current;
+        }
+
+        return implode(' ', $classes);
+    }
+}

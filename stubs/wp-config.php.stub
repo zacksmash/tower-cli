@@ -1,0 +1,57 @@
+<?php
+
+// If a local config file exists
+if ( file_exists( dirname( __FILE__ ) . '/wp-config-local.php' ) ) {
+	// Use these settings on the local server
+ 	include( dirname( __FILE__ ) . '/wp-config-local.php' );
+} else {
+	// Otherwise use the settings below on staging/production
+	define('WP_HOME', 'http://YOUR_URL.COM');
+	define('WP_SITEURL', WP_HOME);
+
+	// ** MySQL settings ** //
+	/** The name of the database for WordPress */
+	define('DB_NAME', 'db_name');
+
+	/** MySQL database username */
+	define('DB_USER', 'db_user');
+
+	/** MySQL database password */
+	define('DB_PASSWORD', 'db_pass');
+
+	/** MySQL hostname */
+	define('DB_HOST', 'localhost');
+
+	/** Define the environment, for Roots/Sage */
+	define('WP_ENV', 'production');
+}
+
+/** Database Charset to use in creating database tables. */
+define('DB_CHARSET', 'utf8');
+
+/** The Database Collate type. Don't change this if in doubt. */
+define('DB_COLLATE', '');
+
+define('AUTH_KEY',         'salts');
+define('SECURE_AUTH_KEY',  'salts');
+define('LOGGED_IN_KEY',    'salts');
+define('NONCE_KEY',        'salts');
+define('AUTH_SALT',        'salts');
+define('SECURE_AUTH_SALT', 'salts');
+define('LOGGED_IN_SALT',   'salts');
+define('NONCE_SALT',       'salts');
+
+$table_prefix = 'signal_';
+define( 'WP_DEBUG', false );
+define( 'WP_DEBUG_LOG', false );
+define( 'AUTOMATIC_UPDATER_DISABLED', false );
+define( 'WP_AUTO_UPDATE_CORE', true );
+// define( 'WPCF7_AUTOP', false );
+
+/* That's all, stop editing! Happy blogging. */
+/** Absolute path to the WordPress directory. */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
+
+/** Sets up WordPress vars and included files. */
+require_once(ABSPATH . 'wp-settings.php');
